@@ -51,7 +51,7 @@ library("rerddap")
 
 ## Search
 
-First, you likely want to search for data, specify either `griddadp` or `tabledap`
+First, you likely want to search for data, specify either `griddap` or `tabledap`
 
 
 ```r
@@ -95,8 +95,24 @@ There is now a convenience function to search over a list of ERDDAP servers,  de
 
 
 ```r
-global_search(query, server_list, which_service)
-#> Error in check_arg(query, "character"): object 'query' not found
+server_list <- c(
+  emodnet_physics = 'https://erddap.emodnet-physics.eu/erddap/',
+  irish_marine_institute = 'https://erddap.marine.ie/erddap/'
+)
+
+global_search(query = 'size', server_list, 'griddap')
+#> # A tibble: 9 × 3
+#> title                                      dataset_id url
+#> <chr>                                      <chr>      <chr>
+#> 1 EMODnet Physics - Total Suspended Matter … TSM_BALTI… http…
+#> 2 EMODnet Physics - Total Suspended Matter … TSM_MBSEA  http…
+#> 3 EMODnet Physics - Total Suspended Matter … TSM_MBSEA… http…
+#> 4 EMODnet Physics - TEMPERATURE YEARLY RECO… ERD_EP_TE… http…
+#> 5 EMODPACE - Monthly sea level derived from… EMODPACE_… http…
+#> 6 EMODnet Physics - Total Suspended Matter … TSM_NORTH… http…
+#> 7 EMODPACE - Absolute sea level trend (1993… EMODPACE_… http…
+#> 8 EMODPACE - Sea Level monthly mean, EurAsi… EMODPACE_… http…
+#> 9 COMPASS-NEATL Hindcast 2016-2020           compass_n… http…
 ```
 
 ## Information
