@@ -19,7 +19,7 @@ more information}
 }
 \value{
 if in interactive mode, opens a URL in your default browser;
-if not, then prints the URL in the console
+if not, returns an errorhen prints the URL in the console
 }
 \description{
 Note that it is an error to call this when \code{base::interactive()}
